@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://brx1yj4e3ndpa"]
+
+[ext_resource type="Script" uid="uid://brij4faitgias" path="res://label.gd" id="1_5b7ti"]
+[ext_resource type="Script" uid="uid://c8gwyjcpwcjs4" path="res://main menu button.gd" id="1_dvdtt"]
+
+[node name="intro" type="Control" unique_id=405352485]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main menu" type="Panel" parent="." unique_id=1440405551]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_dvdtt")
+
+[node name="Label" type="Label" parent="Main menu" unique_id=1628882949]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.056
+anchor_top = 0.09900001
+anchor_right = 0.66700006
+anchor_bottom = 0.296
+offset_left = -0.51200104
+offset_top = -0.15200806
+offset_right = -0.3840332
+offset_bottom = 0.19200134
+theme_override_font_sizes/font_size = 79
+text = "The Void's Call"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_5b7ti")
+
+[node name="New Game" type="Button" parent="Main menu" unique_id=1582060100]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.0
+offset_top = 288.0
+offset_right = 304.0
+offset_bottom = 352.0
+text = "New Game"
+
+[node name="Load Game" type="Button" parent="Main menu" unique_id=1186200104]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.0
+offset_top = 384.0
+offset_right = 304.0
+offset_bottom = 448.0
+text = "Load Game"
+
+[node name="quit button" type="Button" parent="Main menu" unique_id=1840178880]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 144.0
+offset_top = 480.0
+offset_right = 304.0
+offset_bottom = 544.0
+text = "Leave the
+Workshop"
+
+[connection signal="pressed" from="Main menu/New Game" to="Main menu" method="_on_new_game_pressed"]
+[connection signal="pressed" from="Main menu/Load Game" to="Main menu" method="_on_load_game_pressed"]
+[connection signal="pressed" from="Main menu/quit button" to="Main menu" method="_on_quit_button_pressed"]
