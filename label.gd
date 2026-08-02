@@ -23,3 +23,4 @@ func _ready() -> void:
 	NG.disabled = false
 	LG.disabled = false
 	QB.disabled = false
+	Savescript.save("test")

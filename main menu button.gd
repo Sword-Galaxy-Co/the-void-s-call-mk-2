@@ -7,8 +7,7 @@ var file_path = "user://Save.json"
 var save_base_path ="res://Base Save Data.json"
 
 func _on_new_game_pressed() -> void:
-	#var save_base = FileAccess.open("res://Base Save Data.json",FileAccess.READ)
-	#var file = FileAccess.open(filepath,FileAccess.WRITE)
+	Savescript.new_game()
 	$"New Game".text = "Work in Progress"
 	$"New Game".disabled = true
 
@@ -43,16 +42,10 @@ func _on_quit_button_pressed() -> void:
 			$"quit button".text = "Ah I see, well then good bye"
 			click +=1
 		8:
-			#FileAccess.open("user://test.text",FileAccess.WRITE).store_string("Didn't want to stay")
-			if FileAccess.file_exists("User://logs.json") == true:
-				#var file1 = FileAccess.open("User://logs.endings",FileAccess.READ)
-				print("filehere")
-			else:
-				var file2 = FileAccess.open("user://logs.json",FileAccess.WRITE)
-				file2.store_string("Didn't want to stay")
-				file2.close()
+			var file = FileAccess.open("user://quit.ending.json",FileAccess.WRITE)
+			file.store_string("{"+"\n"+"\t"+"\""+"ending 1"+"\""+":"+"\""+"Didn't want to stay"+"\""+"\n"+"}")
+			file.close()
 			get_tree().quit()
-			
 		_:
 			print("error")
 	pass # Replace with function body.

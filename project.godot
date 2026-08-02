@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="The Void's Call mk2"
+run/main_scene="uid://brx1yj4e3ndpa"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Savescript="*uid://boc68efx6if0n"
 
 [physics]
 
