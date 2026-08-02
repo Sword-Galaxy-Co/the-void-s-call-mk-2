@@ -6,11 +6,13 @@ func new_game(luck:float = 0.0)->void:
 	var savefilebase = FileAccess.open("res://save contet/Base Save Data.json",FileAccess.READ)
 	var sfbtext = savefilebase.get_as_text()
 	print(sfbtext)
-	var buffer = sfbtext
+	var buffer = JSON.parse_string(sfbtext)
 	savefilebase.close()
-	#print(buffer["stats"])	
+	buffer["stats"]["luck"] = snapped(randf_range(0,9),0.1)
+	
+	print(buffer)
 	var file =FileAccess.open(filepath,FileAccess.WRITE)
-	file.store_string(buffer)
+	file.store_string(JSON.stringify(buffer))
 	pass
 
 func save(content)->void:
