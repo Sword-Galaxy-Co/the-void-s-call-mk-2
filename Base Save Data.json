@@ -2,6 +2,12 @@
 	"Name":"",
 	"stats":{
 		"level" : 0,
-		"race": "Human"
+		"race": "Human",
+		"atk": 1,
+		"def":2,
+		"luck":0
+	},
+	"tags":{
+		
 	},
 }
