@@ -2,7 +2,7 @@ extends Node
 
 var filepath = "user://test.json"
 
-func new_game(luck:float = 0.0)->void:
+func new_game()->void:
 	var savefilebase = FileAccess.open("res://save contet/Base Save Data.json",FileAccess.READ)
 	var sfbtext = savefilebase.get_as_text()
 	print(sfbtext)
@@ -15,11 +15,10 @@ func new_game(luck:float = 0.0)->void:
 	file.store_string(JSON.stringify(buffer))
 	pass
 
-func save(content)->void:
+func save(content):
 	if FileAccess.file_exists(filepath)==true:
 		var file =FileAccess.open(filepath,FileAccess.READ)
-		var json =JSON.new()
 		var filetext = file.get_as_text()
-		var filestring =str(filetext) + content
-		print(filestring)
-	pass		
+		var filejson =JSON.parse_string(str(filetext))
+		print(filejson)
+	pass
