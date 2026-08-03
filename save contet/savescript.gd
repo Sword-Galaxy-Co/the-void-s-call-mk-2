@@ -12,13 +12,20 @@ func new_game()->void:
 	
 	print(buffer)
 	var file =FileAccess.open(filepath,FileAccess.WRITE)
-	file.store_string(JSON.stringify(buffer))
+	file.store_string(JSON.stringify(buffer,"\t"))
 	pass
 
-func save(content):
+func save(content,area:String = ""):
 	if FileAccess.file_exists(filepath)==true:
 		var file =FileAccess.open(filepath,FileAccess.READ)
 		var filetext = file.get_as_text()
 		var filejson =JSON.parse_string(str(filetext))
 		print(filejson)
+		match area:
+			"Name":
+				filejson["Name"] = content
+			"race":
+				filejson["stats"]["race"] = content
+			_:
+				pass
 	pass

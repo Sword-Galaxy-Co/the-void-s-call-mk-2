@@ -8,9 +8,10 @@ var save_base_path ="res://Base Save Data.json"
 
 func _on_new_game_pressed() -> void:
 	Savescript.new_game()
-	get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://Intro.tscn")
 	#$"New Game".text = "Work in Progress"
 	#$"New Game".disabled = true
+
 
 func _on_load_game_pressed() -> void:
 	var file = FileAccess.open(file_path,FileAccess.READ)
