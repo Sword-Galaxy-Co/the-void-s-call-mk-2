@@ -21,7 +21,7 @@ func _on_load_game_pressed() -> void:
 		var v2 =JSON.new()
 		var f2 =JSON.parse_string(file.get_as_text())
 		pass
-		print(f1 + "\n"+v2+"\n"+f2)
+		print(f1+"\n"+v2+"\n"+f2)
 	else:
 		$"Load Game".text = "Work in Progress"
 		$"Load Game".disabled = true

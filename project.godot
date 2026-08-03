@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Savescript="*uid://boc68efx6if0n"
 
+[display]
+
+window/size/viewport_height=640
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

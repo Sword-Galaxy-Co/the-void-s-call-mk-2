@@ -2,33 +2,164 @@
 
 [ext_resource type="Script" uid="uid://b682ybej0ggel" path="res://Intro/intro.gd" id="1_gjrx4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
-size = Vector2(64, 64)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjrx4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_gjrx4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(784, 336)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Screen:theme_override_styles/panel")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb8jg"]
+bg_color = Color(0.53, 0.53, 0.53, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[sub_resource type="Animation" id="Animation_sb8jg"]
+resource_name = "panel open"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(816, 4), Vector2(816, 368)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 8), Vector2(784, 8), Vector2(784, 336)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Screen:theme_override_styles/panel")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_sb8jg"), SubResource("StyleBoxFlat_sb8jg"), SubResource("StyleBoxFlat_sb8jg")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vltdc"]
+_data = {
+&"RESET": SubResource("Animation_gjrx4"),
+&"panel open": SubResource("Animation_sb8jg")
+}
 
 [node name="core node" type="Node2D" unique_id=1661046897]
 script = ExtResource("1_gjrx4")
 
-[node name="Control" type="Control" parent="." unique_id=1278266100]
-layout_mode = 3
-anchors_preset = 0
+[node name="Panel2" type="Panel" parent="." unique_id=1579242928]
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 640.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjrx4")
+
+[node name="Panel" type="Panel" parent="." unique_id=52570153]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1873133812]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=1607903741]
+libraries/ = SubResource("AnimationLibrary_vltdc")
+
+[node name="Screen" type="Panel" parent="Panel" unique_id=448537856]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 64.0
-offset_right = 256.0
-offset_bottom = 128.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 352.0
 mouse_filter = 2
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1146947718]
-
-[node name="Area2D" type="Area2D" parent="Node2D" unique_id=33160226]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=177352898]
-position = Vector2(224, 96)
-shape = SubResource("RectangleShape2D_sb8jg")
-
-[connection signal="input_event" from="Node2D/Area2D" to="." method="_on_area_2d_input_event"]
+[node name="Label" type="Label" parent="." unique_id=978002119]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 800.0
+offset_bottom = 352.0

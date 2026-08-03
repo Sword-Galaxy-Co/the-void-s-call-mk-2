@@ -25,7 +25,10 @@ func save(content,area:String = ""):
 			"Name":
 				filejson["Name"] = content
 			"race":
-				filejson["stats"]["race"] = content
-			_:
-				pass
+				if typeof(content) == TYPE_STRING:
+					filejson["stats"]["race"] = content
+				else: pass
+			"luck":
+				return filejson["stats"]["race"]["luck"]
+			_: pass
 	pass
