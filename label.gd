@@ -7,7 +7,7 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().call_group("Core","hide")
+	#get_tree().call_group("Core","hide")
 	L.visible_characters = 0
 	NG.disabled = true
 	LG.disabled = true
