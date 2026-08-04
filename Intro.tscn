@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dw0iqa2bghwx6"]
 
-[ext_resource type="Script" uid="uid://b682ybej0ggel" path="res://Intro/intro.gd" id="1_gjrx4"]
+[ext_resource type="Script" uid="uid://dhf1vly4ua1d6" path="res://Intro/node.gd" id="1_gjrx4"]
 
-[sub_resource type="Animation" id="Animation_gjrx4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
+size = Vector2(176, 112)
+
+[sub_resource type="Animation" id="Animation_sb8jg"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -16,59 +19,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(4, 4)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Screen:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(784, 336)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Screen:theme_override_styles/panel")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Label:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sb8jg"]
-bg_color = Color(0.53, 0.53, 0.53, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.8, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 20
-
-[sub_resource type="Animation" id="Animation_sb8jg"]
-resource_name = "panel open"
-length = 5.0
+[sub_resource type="Animation" id="Animation_gjrx4"]
+resource_name = "anime 1"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,169 +29,61 @@ tracks/0/path = NodePath(".:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 4), Vector2(816, 4), Vector2(816, 368)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Screen:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 8), Vector2(784, 8), Vector2(784, 336)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Screen:theme_override_styles/panel")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [SubResource("StyleBoxFlat_sb8jg"), SubResource("StyleBoxFlat_sb8jg"), SubResource("StyleBoxFlat_sb8jg")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Label:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"update": 0,
+"values": [Vector2(4, 4), Vector2(216, 4)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vltdc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb8jg"]
 _data = {
-&"RESET": SubResource("Animation_gjrx4"),
-&"panel open": SubResource("Animation_sb8jg")
+&"RESET": SubResource("Animation_sb8jg"),
+&"anime 1": SubResource("Animation_gjrx4")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjrx4"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="GDScript" id="GDScript_gjrx4"]
-resource_name = "mouse"
-script/source = "extends Node
-
-
-@onready var mouse: ColorRect = $\".\"
-@onready var interact_text: Label = $\"interact text\"
-
-func _ready()->void:
-	var filepath =\"res://Story.json\"
-	var file =FileAccess.open(filepath,FileAccess.READ)
-	var filetext = file.get_as_text()
-	var filejson =JSON.parse_string(str(filetext))
-	interact_text.text =filejson[\"Intro\"][1]
-	pass
-
-
-func _on_hitbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event == InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print(\"test\")
-			#mouse.hide()
-	pass # Replace with function body.
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjrx4"]
-size = Vector2(496, 112)
-
-[sub_resource type="Animation" id="Animation_vltdc"]
-resource_name = "hitbox"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_33sem"]
-_data = {
-&"hitbox": SubResource("Animation_vltdc")
-}
-
-[node name="core node" type="Node2D" unique_id=1661046897]
+[node name="Node" type="Node" unique_id=702018384]
 script = ExtResource("1_gjrx4")
 
-[node name="bglayer" type="Node" parent="." unique_id=511861919]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bglayer" unique_id=1607903741]
-root_node = NodePath("../Panel")
-libraries/ = SubResource("AnimationLibrary_vltdc")
-
-[node name="Panel2" type="Panel" parent="bglayer" unique_id=1579242928]
-offset_right = 1152.0
-offset_bottom = 640.0
-mouse_behavior_recursive = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gjrx4")
-
-[node name="Panel" type="Panel" parent="bglayer" unique_id=52570153]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = -1140.0
-offset_bottom = -628.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_behavior_recursive = 2
-
-[node name="Screen" type="Panel" parent="bglayer/Panel" unique_id=448537856]
-layout_mode = 0
+[node name="Panel" type="Panel" parent="." unique_id=1929894738]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 800.0
-offset_bottom = 352.0
+offset_right = 880.0
+offset_bottom = 496.0
 mouse_filter = 2
-mouse_behavior_recursive = 2
 
-[node name="Label" type="Label" parent="bglayer" unique_id=978002119]
+[node name="Panel" type="Panel" parent="Panel" unique_id=1298999612]
+visible = false
+layout_mode = 0
+offset_left = 688.0
+offset_top = 368.0
+offset_right = 864.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="Area2D" type="Area2D" parent="Panel/Panel" unique_id=335610113]
+position = Vector2(-688, -368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Panel/Area2D" unique_id=2134742311]
+position = Vector2(776, 424)
+shape = SubResource("RectangleShape2D_sb8jg")
+
+[node name="Label" type="Label" parent="Panel/Panel" unique_id=1706354555]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Node" type="Node" parent="Panel" unique_id=1659108516]
+
+[node name="Panel" type="Panel" parent="Panel/Node" unique_id=846992939]
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 800.0
-offset_bottom = 352.0
-mouse_behavior_recursive = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-horizontal_alignment = 1
-autowrap_mode = 2
-visible_characters = 0
-
-[node name="Node2" type="Node" parent="." unique_id=1309080212]
-
-[node name="mouse" type="ColorRect" parent="Node2" unique_id=1991595479]
-offset_left = 72.0
-offset_top = 456.0
-offset_right = 568.0
-offset_bottom = 568.0
+offset_right = 36.0
+offset_bottom = 36.0
 mouse_filter = 2
-mouse_behavior_recursive = 2
-color = Color(0.3180198, 0.31801978, 0.31801975, 1)
-script = SubResource("GDScript_gjrx4")
 
-[node name="interact text" type="Label" parent="Node2/mouse" unique_id=1267088529]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 488.0
-offset_bottom = 104.0
-mouse_behavior_recursive = 2
-autowrap_mode = 2
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Node/Panel" unique_id=1787417198]
+libraries/ = SubResource("AnimationLibrary_sb8jg")
+autoplay = &"anime 1"
 
-[node name="hitbox" type="Area2D" parent="Node2/mouse" unique_id=1760367887]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/mouse/hitbox" unique_id=635625914]
-position = Vector2(248, 56)
-shape = SubResource("RectangleShape2D_gjrx4")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2/mouse" unique_id=1144749911]
-libraries/ = SubResource("AnimationLibrary_33sem")
-
-[connection signal="input_event" from="Node2/mouse/hitbox" to="Node2/mouse" method="_on_hitbox_input_event"]
+[connection signal="input_event" from="Panel/Panel/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="animation_finished" from="Panel/Node/Panel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

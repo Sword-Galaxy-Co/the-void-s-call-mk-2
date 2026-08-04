@@ -14,7 +14,7 @@ grow_vertical = 2
 [node name="Main menu" type="Panel" parent="." unique_id=1440405551]
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 640.0
 script = ExtResource("1_dvdtt")
 
 [node name="Label" type="Label" parent="Main menu" unique_id=1628882949]
