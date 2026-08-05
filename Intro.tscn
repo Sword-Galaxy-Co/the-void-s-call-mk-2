@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dw0iqa2bghwx6"]
 
 [ext_resource type="Script" uid="uid://dhf1vly4ua1d6" path="res://Intro/node.gd" id="1_gjrx4"]
+[ext_resource type="AudioStream" uid="uid://cpwg7syporw1b" path="res://Intro/boot up.wav" id="2_sb8jg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
 size = Vector2(176, 112)
@@ -84,6 +85,9 @@ mouse_filter = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Node/Panel" unique_id=1787417198]
 libraries/ = SubResource("AnimationLibrary_sb8jg")
 autoplay = &"anime 1"
+
+[node name="bootup" type="AudioStreamPlayer2D" parent="Panel/Node/Panel" unique_id=1933980777]
+stream = ExtResource("2_sb8jg")
 
 [connection signal="input_event" from="Panel/Panel/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="animation_finished" from="Panel/Node/Panel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
