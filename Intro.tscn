@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhf1vly4ua1d6" path="res://Intro/node.gd" id="1_gjrx4"]
 [ext_resource type="AudioStream" uid="uid://cpwg7syporw1b" path="res://Intro/boot up.wav" id="2_sb8jg"]
+[ext_resource type="AudioStream" uid="uid://cs6cppkra1t6d" path="res://lower_green_blue_green.wav" id="3_vltdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
 size = Vector2(176, 112)
@@ -67,9 +68,6 @@ _data = {
 &"anime 1": SubResource("Animation_gjrx4")
 }
 
-[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_sb8jg"]
-buffer_length = 8.6
-
 [node name="Node" type="Node" unique_id=702018384]
 script = ExtResource("1_gjrx4")
 
@@ -116,8 +114,8 @@ stream = ExtResource("2_sb8jg")
 autoplay = true
 
 [node name="Player" type="AudioStreamPlayer" parent="." unique_id=827782207]
-stream = SubResource("AudioStreamGenerator_sb8jg")
-volume_db = -6.19
+stream = ExtResource("3_vltdc")
+volume_db = -38.12
 pitch_scale = 0.26
 autoplay = true
 
