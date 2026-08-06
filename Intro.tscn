@@ -20,9 +20,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(4, 4)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bootup:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_gjrx4"]
 resource_name = "anime 1"
+length = 1.97
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,10 +43,22 @@ tracks/0/path = NodePath(".:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.985, 1.97),
+"transitions": PackedFloat32Array(1.0000001, 1, 1.0000001),
 "update": 0,
-"values": [Vector2(4, 4), Vector2(216, 4)]
+"values": [Vector2(4, 4), Vector2(576, 4), Vector2(576, 320)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bootup:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sb8jg"]
@@ -42,18 +67,18 @@ _data = {
 &"anime 1": SubResource("Animation_gjrx4")
 }
 
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_sb8jg"]
+buffer_length = 8.6
+
 [node name="Node" type="Node" unique_id=702018384]
 script = ExtResource("1_gjrx4")
 
 [node name="Panel" type="Panel" parent="." unique_id=1929894738]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 880.0
-offset_bottom = 496.0
+offset_right = 864.0
+offset_bottom = 480.0
 mouse_filter = 2
 
 [node name="Panel" type="Panel" parent="Panel" unique_id=1298999612]
-visible = false
 layout_mode = 0
 offset_left = 688.0
 offset_top = 368.0
@@ -88,6 +113,12 @@ autoplay = &"anime 1"
 
 [node name="bootup" type="AudioStreamPlayer2D" parent="Panel/Node/Panel" unique_id=1933980777]
 stream = ExtResource("2_sb8jg")
+autoplay = true
+
+[node name="Player" type="AudioStreamPlayer" parent="." unique_id=827782207]
+stream = SubResource("AudioStreamGenerator_sb8jg")
+volume_db = -6.19
+pitch_scale = 0.26
+autoplay = true
 
 [connection signal="input_event" from="Panel/Panel/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="animation_finished" from="Panel/Node/Panel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
