@@ -1,9 +1,5 @@
 {
-	"Intro":[
-		"Okay lets see how well you can interact with this world.",
-		"okay so for mouse look for a lighter area around.\n
-		Once that area is clicked it will show a differnt layout and the point will dissapper.",
-		"Okay so the like the mouse system but you can just type the name of them, \n
-		ie: \"Door east\" or \"leave room\""
+		"Intro":[
+			"Okay lets see how well you can interact with this world.",
 	],
 }

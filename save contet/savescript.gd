@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 var filepath = "user://test.json"
@@ -17,9 +18,7 @@ func new_game()->void:
 
 func save(content,area:String = ""):
 	if FileAccess.file_exists(filepath)==true:
-		var file =FileAccess.open(filepath,FileAccess.READ)
-		var filetext = file.get_as_text()
-		var filejson =JSON.parse_string(str(filetext))
+		var filejson =JSON.parse_string(str(FileAccess.open(filepath,FileAccess.READ).get_as_text()))
 		print(filejson)
 		match area:
 			"Name":
@@ -30,5 +29,8 @@ func save(content,area:String = ""):
 				else: pass
 			"luck":
 				return filejson["stats"]["race"]["luck"]
+			"story":
+				print(Variable.Divinty)
+				pass
 			_: pass
 	pass

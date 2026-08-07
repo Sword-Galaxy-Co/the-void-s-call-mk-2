@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Savescript="*uid://boc68efx6if0n"
+Variable="*uid://hy51ukthje27"
 
 [display]
 

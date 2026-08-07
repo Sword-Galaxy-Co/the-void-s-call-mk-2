@@ -9,8 +9,9 @@
 		"mana":0,
 		"luck":0
 	},
-	"tags":{
-		"Intro":0,
+	"Story Index":{
+		"Intro": 0,
+		"":0
 	},
-	
+	"Divinity": false
 }

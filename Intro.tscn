@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dhf1vly4ua1d6" path="res://Intro/node.gd" id="1_gjrx4"]
 [ext_resource type="AudioStream" uid="uid://cpwg7syporw1b" path="res://Intro/boot up.wav" id="2_sb8jg"]
-[ext_resource type="AudioStream" uid="uid://cs6cppkra1t6d" path="res://lower_green_blue_green.wav" id="3_vltdc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
 size = Vector2(176, 112)
@@ -76,7 +75,7 @@ offset_right = 864.0
 offset_bottom = 480.0
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="Panel" unique_id=1298999612]
+[node name="button 1" type="Panel" parent="Panel" unique_id=1298999612]
 layout_mode = 0
 offset_left = 688.0
 offset_top = 368.0
@@ -84,17 +83,30 @@ offset_right = 864.0
 offset_bottom = 480.0
 mouse_filter = 2
 
-[node name="Area2D" type="Area2D" parent="Panel/Panel" unique_id=335610113]
+[node name="Area2D" type="Area2D" parent="Panel/button 1" unique_id=335610113]
 position = Vector2(-688, -368)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Panel/Area2D" unique_id=2134742311]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 1/Area2D" unique_id=2134742311]
 position = Vector2(776, 424)
 shape = SubResource("RectangleShape2D_sb8jg")
 
-[node name="Label" type="Label" parent="Panel/Panel" unique_id=1706354555]
+[node name="ColorRect" type="ColorRect" parent="Panel/button 1" unique_id=1179756362]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 176.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="button 1 text" type="RichTextLabel" parent="Panel/button 1" unique_id=1493639789]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 104.0
+mouse_filter = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+autowrap_mode = 1
+visible_characters = 68
 
 [node name="Node" type="Node" parent="Panel" unique_id=1659108516]
 
@@ -113,10 +125,22 @@ autoplay = &"anime 1"
 stream = ExtResource("2_sb8jg")
 autoplay = true
 
-[node name="Player" type="AudioStreamPlayer" parent="." unique_id=827782207]
-stream = ExtResource("3_vltdc")
-volume_db = -38.12
-pitch_scale = 0.26
-autoplay = true
+[node name="Panel" type="Panel" parent="Panel/Node/Panel" unique_id=662262836]
+layout_mode = 0
+offset_right = 592.0
+offset_bottom = 336.0
 
-[connection signal="input_event" from="Panel/Panel/Area2D" to="." method="_on_area_2d_input_event"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Node/Panel/Panel" unique_id=975430181]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 576.0
+offset_bottom = 320.0
+mouse_filter = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 780
+
+[connection signal="input_event" from="Panel/button 1/Area2D" to="." method="_on_area_2d_input_event"]
