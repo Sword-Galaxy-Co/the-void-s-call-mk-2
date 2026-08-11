@@ -4,16 +4,12 @@ extends Node
 var filepath = "user://test.json"
 
 func new_game()->void:
-	var savefilebase = FileAccess.open("res://save contet/Base Save Data.json",FileAccess.READ)
-	var sfbtext = savefilebase.get_as_text()
-	print(sfbtext)
-	var buffer = JSON.parse_string(sfbtext)
-	savefilebase.close()
+	var buffer = JSON.parse_string(FileAccess.open("res://save contet/Base Save Data.json",FileAccess.READ).get_as_text())
+	buffer.close()
 	buffer["stats"]["luck"] = snapped(randf_range(0,9),0.1)
 	
 	print(buffer)
-	var file =FileAccess.open(filepath,FileAccess.WRITE)
-	file.store_string(JSON.stringify(buffer,"\t"))
+	FileAccess.open(filepath,FileAccess.WRITE).store_string(JSON.stringify(buffer,"\t"))
 	pass
 
 func save(content,area:String = ""):
@@ -33,4 +29,7 @@ func save(content,area:String = ""):
 				print(Variable.Divinty)
 				pass
 			_: pass
+	pass
+
+func load_game()->void:
 	pass

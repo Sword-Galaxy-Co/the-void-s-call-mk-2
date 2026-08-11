@@ -6,13 +6,15 @@ var save = {
 var save_base_path ="res://Base Save Data.json"
 
 func _on_new_game_pressed() -> void:
-	Savescript.new_game()
-	get_tree().change_scene_to_file("res://Intro.tscn")
-	#$"New Game".text = "Work in Progress"
-	#$"New Game".disabled = true
+	#Savescript.new_game()
+	#get_tree().change_scene_to_file("res://Intro.tscn")
+	$"New Game".text = "Work in Progress"
+	$"New Game".disabled = true
 
 
 func _on_load_game_pressed() -> void:
+	#Savescript.load_game()
+	#get_tree().change_scene_to_file()
 	$"Load Game".text = "Work in Progress"
 	$"Load Game".disabled = true
 
