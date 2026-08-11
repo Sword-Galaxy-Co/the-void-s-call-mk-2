@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://dhf1vly4ua1d6" path="res://Intro/node.gd" id="1_gjrx4"]
 [ext_resource type="AudioStream" uid="uid://cpwg7syporw1b" path="res://Intro/boot up.wav" id="2_sb8jg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
-size = Vector2(176, 112)
-
 [sub_resource type="Animation" id="Animation_sb8jg"]
 length = 0.001
 tracks/0/type = "value"
@@ -91,6 +88,9 @@ _data = {
 &"anime 1": SubResource("Animation_gjrx4")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
+size = Vector2(176, 112)
+
 [node name="Node" type="Node" unique_id=702018384]
 script = ExtResource("1_gjrx4")
 
@@ -98,39 +98,6 @@ script = ExtResource("1_gjrx4")
 offset_right = 864.0
 offset_bottom = 480.0
 mouse_filter = 2
-
-[node name="button 1" type="Panel" parent="Panel" unique_id=1298999612]
-layout_mode = 0
-offset_left = 688.0
-offset_top = 368.0
-offset_right = 864.0
-offset_bottom = 480.0
-mouse_filter = 2
-
-[node name="Area2D" type="Area2D" parent="Panel/button 1" unique_id=335610113]
-position = Vector2(-688, -368)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 1/Area2D" unique_id=2134742311]
-position = Vector2(776, 424)
-shape = SubResource("RectangleShape2D_sb8jg")
-
-[node name="ColorRect" type="ColorRect" parent="Panel/button 1" unique_id=1179756362]
-layout_mode = 0
-offset_right = 176.0
-offset_bottom = 112.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="button 1 text" type="RichTextLabel" parent="Panel/button 1" unique_id=1493639789]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 168.0
-offset_bottom = 104.0
-mouse_filter = 2
-text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-autowrap_mode = 1
-visible_characters = 68
 
 [node name="Node" type="Node" parent="Panel" unique_id=1659108516]
 
@@ -167,5 +134,40 @@ horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 780
 visible_ratio = 0.9466019
+
+[node name="button 1" type="Panel" parent="Panel" unique_id=1298999612]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 272.0
+offset_right = 824.0
+offset_bottom = 384.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="Area2D" type="Area2D" parent="Panel/button 1" unique_id=335610113]
+position = Vector2(-688, -368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 1/Area2D" unique_id=2134742311]
+position = Vector2(776, 424)
+shape = SubResource("RectangleShape2D_sb8jg")
+
+[node name="ColorRect" type="ColorRect" parent="Panel/button 1" unique_id=1179756362]
+layout_mode = 0
+offset_right = 176.0
+offset_bottom = 112.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="button 1 text" type="RichTextLabel" parent="Panel/button 1" unique_id=1493639789]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 104.0
+mouse_filter = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+autowrap_mode = 1
+visible_characters = 68
 
 [connection signal="input_event" from="Panel/button 1/Area2D" to="." method="_on_area_2d_input_event"]

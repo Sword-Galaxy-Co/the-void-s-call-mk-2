@@ -3,7 +3,6 @@ extends Control
 var save = {
 }
 
-var file_path = "user://Save.json"
 var save_base_path ="res://Base Save Data.json"
 
 func _on_new_game_pressed() -> void:
@@ -14,18 +13,8 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
-	var file = FileAccess.open(file_path,FileAccess.READ)
-	if true and FileAccess.file_exists(file_path):
-		var f1 = file.get_as_text() #gets file data
-		file.close()
-		var v2 =JSON.new()
-		var f2 =JSON.parse_string(file.get_as_text())
-		pass
-		print(f1+"\n"+v2+"\n"+f2)
-	else:
-		$"Load Game".text = "Work in Progress"
-		$"Load Game".disabled = true
-	#pass # Replace with function body.
+	$"Load Game".text = "Work in Progress"
+	$"Load Game".disabled = true
 
 var click =0
 
@@ -44,9 +33,7 @@ func _on_quit_button_pressed() -> void:
 			$"quit button".text = "Ah I see, well then good bye"
 			click +=1
 		8:
-			var file = FileAccess.open("user://quit.ending.json",FileAccess.WRITE)
-			file.store_string("{"+"\n"+"\t"+"\""+"ending 1"+"\""+":"+"\""+"Didn't want to stay"+"\""+"\n"+"}")
-			file.close()
+			Variable.End_check()
 			get_tree().quit()
 		_:
 			print("error")
