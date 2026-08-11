@@ -14,7 +14,7 @@ func _on_new_game_pressed() -> void:
 
 func _on_load_game_pressed() -> void:
 	#Savescript.load_game()
-	#get_tree().change_scene_to_file()
+	get_tree().change_scene_to_file(Savescript.data())
 	$"Load Game".text = "Work in Progress"
 	$"Load Game".disabled = true
 
@@ -23,18 +23,18 @@ var click =0
 func _on_quit_button_pressed() -> void:
 	match click:
 		0:
-			$"quit button".text = "why"
-			click +=1
-		1,2,3,4,5:
-			$"quit button".text = ""
-			click +=1 
-		6:
-			$"quit button".text = "Do you want to leave that badly"
-			click +=1
-		7:
-			$"quit button".text = "Ah I see, well then good bye"
-			click +=1
-		8:
+			#$"quit button".text = "why"
+			#click +=1
+		#1,2,3,4,5:
+			#$"quit button".text = ""
+			#click +=1 
+		#6:
+			#$"quit button".text = "Do you want to leave that badly"
+			#click +=1
+		#7:
+			#$"quit button".text = "Ah I see, well then good bye"
+			#click +=1
+		#8:
 			Variable.End_check()
 			get_tree().quit()
 		_:

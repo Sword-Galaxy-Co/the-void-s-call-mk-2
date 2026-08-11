@@ -32,4 +32,5 @@ func save(content,area:String = ""):
 	pass
 
 func load_game()->void:
+	Variable.Data = 
 	pass
