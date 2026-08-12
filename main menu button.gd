@@ -6,15 +6,14 @@ var save = {
 var save_base_path ="res://Base Save Data.json"
 
 func _on_new_game_pressed() -> void:
-	#Savescript.new_game()
-	#get_tree().change_scene_to_file("res://Intro.tscn")
+	SaveScript.new_game()
+	get_tree().change_scene_to_file("res://Intro.tscn")
 	$"New Game".text = "Work in Progress"
 	$"New Game".disabled = true
 
 
 func _on_load_game_pressed() -> void:
-	#Savescript.load_game()
-	get_tree().change_scene_to_file(Savescript.data())
+	SaveScript.load_game()
 	$"Load Game".text = "Work in Progress"
 	$"Load Game".disabled = true
 
@@ -35,7 +34,7 @@ func _on_quit_button_pressed() -> void:
 			#$"quit button".text = "Ah I see, well then good bye"
 			#click +=1
 		#8:
-			Variable.End_check()
+			Variable.End_check(0,"Didn't want to stay")
 			get_tree().quit()
 		_:
 			print("error")

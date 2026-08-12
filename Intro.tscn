@@ -89,7 +89,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
-size = Vector2(176, 112)
+size = Vector2(176, 96)
 
 [node name="Node" type="Node" unique_id=702018384]
 script = ExtResource("1_gjrx4")
@@ -137,37 +137,90 @@ visible_ratio = 0.9466019
 
 [node name="button 1" type="Panel" parent="Panel" unique_id=1298999612]
 layout_mode = 0
-offset_left = 648.0
-offset_top = 272.0
-offset_right = 824.0
-offset_bottom = 384.0
+offset_left = 88.0
+offset_top = 376.0
+offset_right = 264.0
+offset_bottom = 472.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
-
-[node name="Area2D" type="Area2D" parent="Panel/button 1" unique_id=335610113]
-position = Vector2(-688, -368)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 1/Area2D" unique_id=2134742311]
-position = Vector2(776, 424)
-shape = SubResource("RectangleShape2D_sb8jg")
+metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Panel/button 1" unique_id=1179756362]
-layout_mode = 0
-offset_right = 176.0
-offset_bottom = 112.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="button 1 text" type="RichTextLabel" parent="Panel/button 1" unique_id=1493639789]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 168.0
-offset_bottom = 104.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-autowrap_mode = 1
-visible_characters = 68
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+scroll_active = false
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 73
+visible_ratio = 1.0138888
 
-[connection signal="input_event" from="Panel/button 1/Area2D" to="." method="_on_area_2d_input_event"]
+[node name="1" type="Area2D" parent="Panel/button 1" unique_id=335610113]
+position = Vector2(-688, -368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 1/1" unique_id=2134742311]
+position = Vector2(776, 416)
+shape = SubResource("RectangleShape2D_sb8jg")
+
+[node name="button 2" type="Panel" parent="Panel" unique_id=48628699]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 376.0
+offset_right = 552.0
+offset_bottom = 472.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Panel/button 2" unique_id=912498700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="button 2 text" type="RichTextLabel" parent="Panel/button 2" unique_id=257446584]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+scroll_active = false
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="Area2D" parent="Panel/button 2" unique_id=213879784]
+position = Vector2(-688, -368)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 2/2" unique_id=648494670]
+position = Vector2(776, 416)
+shape = SubResource("RectangleShape2D_sb8jg")
+debug_color = Color(0.7019608, 0.6, 0, 0.41960785)
+
+[connection signal="input_event" from="Panel/button 1/1" to="." method="_on__input_event"]
+[connection signal="input_event" from="Panel/button 2/2" to="." method="_on_2_input_event"]

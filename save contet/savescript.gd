@@ -5,7 +5,6 @@ var filepath = "user://test.json"
 
 func new_game()->void:
 	var buffer = JSON.parse_string(FileAccess.open("res://save contet/Base Save Data.json",FileAccess.READ).get_as_text())
-	buffer.close()
 	buffer["stats"]["luck"] = snapped(randf_range(0,9),0.1)
 	
 	print(buffer)
@@ -32,5 +31,6 @@ func save(content,area:String = ""):
 	pass
 
 func load_game()->void:
-	Variable.Data = 
+	#Variable.Data = ""
+	print("Loading....")
 	pass
