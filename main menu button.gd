@@ -13,8 +13,7 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
-	SaveScript.load_game()
-	$"Load Game".text = "Work in Progress"
+	$"Load Game".text = "Error"
 	$"Load Game".disabled = true
 
 var click =0

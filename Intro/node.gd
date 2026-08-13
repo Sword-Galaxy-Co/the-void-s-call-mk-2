@@ -18,6 +18,16 @@ func _ready() -> void:
 	pass
 
 
+func _on_skills_item_selected(index: int) -> void:
+	for i in range(Skills.item_count):
+		match Skills.get_item_text(i):
+			"Skill 1": story_code_int +=1; print(story_code_int); main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"Skill 1")
+			"Skill 2": story_code_int +=1; print(story_code_int); main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"Skill 2")
+			_:pass
+		pass
+	pass # Replace with function body.
+
+
 func _on__input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
