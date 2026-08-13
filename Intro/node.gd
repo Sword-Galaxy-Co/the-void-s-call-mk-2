@@ -22,54 +22,42 @@ func _on__input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			print("+");
-			#if
 			story_code_int += 1
-
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			print("-");
-			if story_code_int >= 0 and story_code_int != 0:
-				story_code_int -= 1
-				print("fail?")
-			elif story_code_int == 0 and EngineDebugger.is_active() == true:
-				get_tree().quit()
+			main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"yes")
 
 func _on_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			print("+2");
-			#if
-			story_code_int += 1
-
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			print("-2");
+			print("-");
 			if story_code_int >= 0 and story_code_int != 0:
 				story_code_int -= 1
-				print("fail?2")
+				main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"no")
 			elif story_code_int == 0 and EngineDebugger.is_active() == true:
 				get_tree().quit()
 
 var x = 0
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	print(Story_Jsons.Chapter_0["part 1"][0])
-	main_text.text = Story_Jsons.Chapter_0["part 1"][0]
-	await get_tree().create_timer(.5).timeout
-	print(Story_Jsons.Chapter_0["part 1"][1]["button 1"][1])
-	$"Panel/button 1".visible = Story_Jsons.Chapter_0["part 1"][1]["button 1"][0]
-	button_1_text.text =Story_Jsons.Chapter_0["part 1"][1]["button 1"][1]
-	await get_tree().create_timer(.5).timeout
-	print(Story_Jsons.Chapter_0["part 1"][1]["button 2"][1])
-	$"Panel/button 2".visible = Story_Jsons.Chapter_0["part 1"][1]["button 2"][0]
-	button_2_text.text = Story_Jsons.Chapter_0["part 1"][1]["button 2"][1]
-	await get_tree().create_timer(.5).timeout
-	print(Story_Jsons.Chapter_0["part 1"][1]["Skills"][1])
-	x = 0
-	for item in Story_Jsons.Chapter_0["part 1"][1]["Skills"][1]:
-		Skills.add_item(str(Story_Jsons.Chapter_0["part 1"][1]["Skills"][1][x]),x)
-		x += 1
-		await get_tree().create_timer(0.1).timeout
-		print(x) 
-		pass
-	Skills.visible = Story_Jsons.Chapter_0["part 1"][1]["Skills"][0]
-	await  get_tree().create_timer(.5).timeout
-	main_text.text = Story_Jsons.Chapter_0["part 1"][2]
-	
+	if anim_name == "anime 1":
+		print(Story_Jsons.Chapter_0_const["part 1"][0])
+		main_text.text = Story_Jsons.Chapter_0_const["part 1"][0]
+		await get_tree().create_timer(.5).timeout
+		print(Story_Jsons.Chapter_0_const["part 1"][1]["button 1"][1])
+		$"Panel/button 1".visible = Story_Jsons.Chapter_0_const["part 1"][1]["button 1"][0]
+		button_1_text.text =Story_Jsons.Chapter_0_const["part 1"][1]["button 1"][1]
+		await get_tree().create_timer(.5).timeout
+		print(Story_Jsons.Chapter_0_const["part 1"][1]["button 2"][1])
+		$"Panel/button 2".visible = Story_Jsons.Chapter_0_const["part 1"][1]["button 2"][0]
+		button_2_text.text = Story_Jsons.Chapter_0_const["part 1"][1]["button 2"][1]
+		await get_tree().create_timer(.5).timeout
+		print(Story_Jsons.Chapter_0_const["part 1"][1]["Skills"][1])
+		x = 0
+		for item in Story_Jsons.Chapter_0_const["part 1"][1]["Skills"][1]:
+			Skills.add_item(str(Story_Jsons.Chapter_0_const["part 1"][1]["Skills"][1][x]),x)
+			x += 1
+			await get_tree().create_timer(0.1).timeout
+			print(x) 
+			pass
+		Skills.visible = Story_Jsons.Chapter_0_const["part 1"][1]["Skills"][0]
+		await  get_tree().create_timer(.5).timeout
+		main_text.text = Story_Jsons.Chapter_0_const["part 1"][2]
+		#-# t

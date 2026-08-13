@@ -15,6 +15,7 @@ func new_game()->void:
 
 func save(content,area:String = ""):
 	if FileAccess.file_exists(filepath)==true:
+		print(content)
 		var filejson =JSON.parse_string(str(FileAccess.open(filepath,FileAccess.READ).get_as_text()))
 		print(filejson)
 		match area:
@@ -30,6 +31,7 @@ func save(content,area:String = ""):
 				print(Variable.Divinty)
 				pass
 			_: pass
+		FileAccess.open(filepath,FileAccess.WRITE).store_string(str(filejson))
 	pass
 
 func load_game()->void:

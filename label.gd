@@ -21,6 +21,9 @@ func _ready() -> void:
 	print("Title loaded")
 	await get_tree().create_timer(.1).timeout
 	NG.disabled = false
+	await get_tree().create_timer(.5).timeout
 	LG.disabled = false
+	await get_tree().create_timer(.5).timeout
 	QB.disabled = false
+	await get_tree().create_timer(.5).timeout
 	SaveScript.save("test")

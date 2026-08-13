@@ -1,17 +1,17 @@
 @tool
 extends Node
 
-var Chapter_0 = {
+const Chapter_0_const = {
 	"part 1" : [
 		"Hello so this is the intro system, before we start lets turn on your buttons",
 	{
 		"button 1":[
 			true,
-			"Yes"
+			"Next"
 		],
 		"button 2":[
 			true,
-			"No"
+			"Back"
 		],
 		"Skills":[
 			true,
@@ -31,3 +31,13 @@ var Chapter_0 = {
 		
 	]
 }
+
+func Chapter_0_func(Story_marker:int =0, type_of_input:String=""):
+	var x = str(Story_marker)
+	match type_of_input:
+		"yes":
+			pass
+		"no":
+			pass
+	return x
+	
