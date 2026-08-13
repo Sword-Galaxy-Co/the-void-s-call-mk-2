@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://dw0iqa2bghwx6"]
+
+[ext_resource type="Script" uid="uid://dhf1vly4ua1d6" path="res://Intro/node.gd" id="1_gjrx4"]
+[ext_resource type="AudioStream" uid="uid://cpwg7syporw1b" path="res://Intro/boot up.wav" id="2_sb8jg"]
+
+[sub_resource type="Animation" id="Animation_sb8jg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bootup:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gjrx4"]
+resource_name = "anime 1"
+length = 1.97
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.985, 1.97),
+"transitions": PackedFloat32Array(1.0000001, 1, 1.0000001),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(592, 4), Vector2(592, 336)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bootup:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4333333, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sb8jg"]
+_data = {
+&"RESET": SubResource("Animation_sb8jg"),
+&"anime 1": SubResource("Animation_gjrx4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb8jg"]
+size = Vector2(176, 96)
+
+[node name="Node" type="Node" unique_id=702018384]
+script = ExtResource("1_gjrx4")
+
+[node name="Panel" type="Panel" parent="." unique_id=1929894738]
+offset_right = 864.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="Node" type="Node" parent="Panel" unique_id=1659108516]
+
+[node name="Panel" type="Panel" parent="Panel/Node" unique_id=846992939]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 36.0
+offset_bottom = 36.0
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Node/Panel" unique_id=1787417198]
+libraries/ = SubResource("AnimationLibrary_sb8jg")
+
+[node name="bootup" type="AudioStreamPlayer2D" parent="Panel/Node/Panel" unique_id=1933980777]
+stream = ExtResource("2_sb8jg")
+autoplay = true
+
+[node name="Panel" type="Panel" parent="Panel/Node/Panel" unique_id=662262836]
+layout_mode = 0
+offset_right = 592.0
+offset_bottom = 336.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/Node/Panel/Panel" unique_id=975430181]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 576.0
+offset_bottom = 320.0
+mouse_filter = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 780
+visible_ratio = 0.9466019
+
+[node name="button 1" type="Panel" parent="Panel" unique_id=1298999612 groups=["show later"]]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 376.0
+offset_right = 264.0
+offset_bottom = 472.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Panel/button 1" unique_id=1179756362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="button 1 text" type="RichTextLabel" parent="Panel/button 1" unique_id=1493639789]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+scroll_active = false
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 73
+visible_ratio = 1.0138888
+
+[node name="1" type="Area2D" parent="Panel/button 1" unique_id=335610113]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 1/1" unique_id=2134742311]
+position = Vector2(88, 48)
+shape = SubResource("RectangleShape2D_sb8jg")
+
+[node name="button 2" type="Panel" parent="Panel" unique_id=48628699 groups=["show later"]]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 376.0
+offset_right = 552.0
+offset_bottom = 472.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Panel/button 2" unique_id=912498700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="button 2 text" type="RichTextLabel" parent="Panel/button 2" unique_id=257446584]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+scroll_active = false
+autowrap_trim_flags = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="Area2D" parent="Panel/button 2" unique_id=213879784]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 2/2" unique_id=648494670]
+position = Vector2(88, 48)
+shape = SubResource("RectangleShape2D_sb8jg")
+debug_color = Color(0.7019608, 0.6, 0, 0.41960785)
+
+[node name="Skills" type="OptionButton" parent="Panel" unique_id=1795403252 groups=["show later"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.26900002
+anchor_bottom = 0.15
+offset_left = 712.0
+offset_top = 72.0
+offset_right = 591.584
+offset_bottom = 48.0
+mouse_filter = 1
+flat = true
+item_count = 2
+popup/item_0/text = "wait"
+popup/item_0/id = 0
+popup/item_1/text = "skills"
+popup/item_1/id = 1
+popup/item_1/separator = true
+
+[connection signal="animation_finished" from="Panel/Node/Panel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="input_event" from="Panel/button 1/1" to="." method="_on__input_event"]
+[connection signal="input_event" from="Panel/button 2/2" to="." method="_on_2_input_event"]
+[connection signal="item_selected" from="Panel/Skills" to="." method="_on_skills_item_selected"]
