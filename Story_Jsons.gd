@@ -21,6 +21,13 @@ var Chapter_0 = {
 			]
 		]
 	},
-		"Okay can you see the buttons",
+		"Okay can you see the buttons?",
+		{
+			"yes":"Okay thank you",
+			"no":"... you liar",
+			"Skill 1":"Okay why",
+			"Skill 2":"Okay\n but why that"
+		}
+		
 	]
 }
