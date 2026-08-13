@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-var filepath = "user://test.json"
+var filepath = "user://Saves.json"
 
 func new_game()->void:
 	var buffer = JSON.parse_string(FileAccess.open("res://save contet/Base Save Data.json",FileAccess.READ).get_as_text())
@@ -9,6 +9,8 @@ func new_game()->void:
 	
 	print(buffer)
 	FileAccess.open(filepath,FileAccess.WRITE).store_string(JSON.stringify(buffer,"\t"))
+	print(FileAccess.open(filepath,FileAccess.READ))
+	
 	pass
 
 func save(content,area:String = ""):

@@ -1,6 +1,7 @@
+@tool
 extends Node
 
-var Chapter_0 ={
+var Chapter_0 = {
 	"part 1" : [
 		"Hello so this is the intro system, before we start lets turn on your buttons",
 	{
@@ -20,8 +21,6 @@ var Chapter_0 ={
 			]
 		]
 	},
-	[
-		"Okay So whe are going to do this"
-	]
+		"Okay can you see the buttons",
 	]
 }

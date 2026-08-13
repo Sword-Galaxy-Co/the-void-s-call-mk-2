@@ -76,7 +76,7 @@ tracks/2/path = NodePath("Panel:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.7, 1.97),
+"times": PackedFloat32Array(0, 1.4333333, 1.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, false, true]
@@ -110,7 +110,6 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Node/Panel" unique_id=1787417198]
 libraries/ = SubResource("AnimationLibrary_sb8jg")
-autoplay = &"anime 1"
 
 [node name="bootup" type="AudioStreamPlayer2D" parent="Panel/Node/Panel" unique_id=1933980777]
 stream = ExtResource("2_sb8jg")
@@ -135,7 +134,7 @@ vertical_alignment = 1
 visible_characters = 780
 visible_ratio = 0.9466019
 
-[node name="button 1" type="Panel" parent="Panel" unique_id=1298999612]
+[node name="button 1" type="Panel" parent="Panel" unique_id=1298999612 groups=["show later"]]
 layout_mode = 0
 offset_left = 88.0
 offset_top = 376.0
@@ -173,13 +172,12 @@ visible_characters = 73
 visible_ratio = 1.0138888
 
 [node name="1" type="Area2D" parent="Panel/button 1" unique_id=335610113]
-position = Vector2(-688, -368)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 1/1" unique_id=2134742311]
-position = Vector2(776, 416)
+position = Vector2(88, 48)
 shape = SubResource("RectangleShape2D_sb8jg")
 
-[node name="button 2" type="Panel" parent="Panel" unique_id=48628699]
+[node name="button 2" type="Panel" parent="Panel" unique_id=48628699 groups=["show later"]]
 layout_mode = 0
 offset_left = 376.0
 offset_top = 376.0
@@ -215,12 +213,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="2" type="Area2D" parent="Panel/button 2" unique_id=213879784]
-position = Vector2(-688, -368)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/button 2/2" unique_id=648494670]
-position = Vector2(776, 416)
+position = Vector2(88, 48)
 shape = SubResource("RectangleShape2D_sb8jg")
 debug_color = Color(0.7019608, 0.6, 0, 0.41960785)
 
+[node name="Skills" type="OptionButton" parent="Panel" unique_id=1795403252 groups=["show later"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.26900002
+anchor_bottom = 0.15
+offset_left = 712.0
+offset_top = 72.0
+offset_right = 591.584
+offset_bottom = 48.0
+mouse_filter = 1
+
+[connection signal="animation_finished" from="Panel/Node/Panel/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="input_event" from="Panel/button 1/1" to="." method="_on__input_event"]
 [connection signal="input_event" from="Panel/button 2/2" to="." method="_on_2_input_event"]
