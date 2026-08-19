@@ -37,4 +37,5 @@ func save(content,area:String = ""):
 func load_game()->void:
 	#Variable.Data = ""
 	print("Loading....")
+	print("Sorry, but I have not made a load system I haven't figured out how to do that")
 	pass

@@ -15,35 +15,45 @@ func _ready() -> void:
 	ani_player.play("RESET")
 	ani_player.play("anime 1")
 	get_tree().call_group("show later","hide")
+	if EngineDebugger.is_active() == true:
+		await get_tree().create_timer(2).timeout
+		$Button.show()
+		pass
 	pass
 
 
 func _on_skills_item_selected(index: int) -> void:
-	for i in range(Skills.item_count):
-		match Skills.get_item_text(i):
-			"Skill 1": story_code_int +=1; print(story_code_int); main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"Skill 1")
-			"Skill 2": story_code_int +=1; print(story_code_int); main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"Skill 2")
-			_:pass
-		pass
+	if Skills.get_item_text(index) == "Skill 1":
+		story_code_int +=1
+		print("One")
+		print(story_code_int) 
+		#print(Story_Jsons.Chapter_0_func(story_code_int,"Skill 1"))
+		main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"Skill 1")
+	elif Skills.get_item_text(index) == "Skill 2":
+		story_code_int +=1
+		print("Two")
+		print(story_code_int)
+		#print(Story_Jsons.Chapter_0_func(story_code_int,"Skill 2"))
+		main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"Skill 2")
+	else:
+		print(index)
 	pass # Replace with function body.
 
 
 func _on__input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			print("+");
+			print("+")
 			story_code_int += 1
 			main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"yes")
 
 func _on_2_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			print("-");
+			print("-")
 			if story_code_int >= 0 and story_code_int != 0:
-				story_code_int -= 1
+				story_code_int += 1
 				main_text.text = Story_Jsons.Chapter_0_func(story_code_int,"no")
-			elif story_code_int == 0 and EngineDebugger.is_active() == true:
-				get_tree().quit()
 
 var x = 0
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -71,3 +81,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		await  get_tree().create_timer(.5).timeout
 		main_text.text = Story_Jsons.Chapter_0_const["part 1"][2]
 		#-# t
+
+
+func _on_button_pressed() -> void:
+	if EngineDebugger.is_active() == true:
+		get_tree().quit(2)
+		pass
+	else:
+		print("Debug Item should not be seen")
+	pass # Replace with function body.

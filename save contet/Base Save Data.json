@@ -10,7 +10,7 @@
 		"luck":0
 	},
 	"Story Index":{
-		"Intro": 0,
+		"Intro": false,
 		"":0
 	},
 	"Divinity": false,

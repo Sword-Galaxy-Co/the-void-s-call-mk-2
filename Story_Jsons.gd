@@ -42,7 +42,11 @@ func Chapter_0_func(Story_marker:int =0, type_of_input:String=""):
 				"no":
 					return Chapter_0_const["part 1"][3]["no"]
 				Chapter_0_const["part 1"][1]["Skills"][1][0]:
+					return Chapter_0_const["part 1"][3]["Skill 1"]
+				Chapter_0_const["part 1"][1]["Skills"][1][1]:
 					return Chapter_0_const["part 1"][3]["Skill 2"]
 				_:
 					return x
+		2:
+			return "okay so"
 		_:return x
