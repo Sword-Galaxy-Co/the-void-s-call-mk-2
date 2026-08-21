@@ -7,11 +7,11 @@ const Chapter_0_const = {
 		{
 			"button 1":[
 				true,
-				"option 1"
+				"yes"
 			],
 			"button 2":[
 				true,
-				"option 2"
+				"no"
 			],
 			"Skills":[
 				true,
@@ -29,6 +29,20 @@ const Chapter_0_const = {
 			"Skill 2":"Okay\n but why that"
 		}
 		
+	],
+	"part 2":[
+		"Okay so there",
+		{
+			"button 1":[
+				true,
+			],
+			"button 2":[
+				true,
+			],
+			"Skills":[
+				true,
+			]
+		}
 	]
 }
 
